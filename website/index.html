@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #timeto {
+                font-size: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="timeto"></div>
+    </body>
+    <script>
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            var resTimeObj;
+            if (this.readyState == 4 && this.status == 200) {
+                resTimeObj = JSON.parse(this.response);
+                document.getElementById("timeto").textContent = "Days : " + resTimeObj.daysUntil + " Hours : " + resTimeObj.hoursUntil + " Minutes : " + resTimeObj.minutesUntil + " until the internship starts!";
+            }
+  };
+  
+  <!-- The method type and url were created with API Gateway by creating a resource and a method  
+  and then deploying the api and associating that method with the lambda function -->
+  
+  
+  xhttp.open("GET", url , true);
+  xhttp.send();
+    </script>
+</html>
